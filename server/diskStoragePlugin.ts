@@ -24,8 +24,8 @@ function loadConfig(): StorageConfig {
   let config: StorageConfig = {
     storagePath: getDefaultStoragePath(),
     isConfigured: false,
-    geminiApiKey: process.env.GEMINI_API_KEY || '',
-    geminiModel: 'gemini-2.5-flash',
+    geminiApiKey: '',
+    geminiModel: 'gemini-3.5-flash',
     currency: 'USD',
     currencySymbol: '$',
   };
@@ -355,15 +355,14 @@ export function diskStoragePlugin(): Plugin {
               if (!apiKey || typeof apiKey !== 'string' || apiKey.includes('•')) {
                 const headerKey = req.headers['x-gemini-key'];
                 apiKey = (headerKey && !headerKey.includes('•') ? headerKey : null) ||
-                  config.geminiApiKey ||
-                  process.env.GEMINI_API_KEY;
+                  config.geminiApiKey;
               }
 
               if (!apiKey || apiKey.trim().length < 5) {
                 res.writeHead(400, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({
                   success: false,
-                  error: 'Google Gemini API key required. Please enter your API key in the top navigation bar to run Gemini 3.5 Flash dynamic analysis.'
+                  error: 'Personal Google Gemini API key required. Please enter your API key in the top navigation bar. Your key is stored solely on your local computer disk and will never be stored in any remote database.'
                 }));
                 return;
               }

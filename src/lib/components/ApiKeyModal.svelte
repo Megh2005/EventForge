@@ -116,12 +116,23 @@
         </select>
       </div>
 
+      <!-- Privacy & Local Machine Storage Guarantee Banner -->
+      <div class="privacy-notice-box">
+        <div class="privacy-header font-mono">
+          <ShieldCheck size={16} strokeWidth={2.5} class="privacy-shield-icon" />
+          <span>ZERO DATABASE RETENTION — LOCAL MACHINE ONLY</span>
+        </div>
+        <p class="privacy-notice-text">
+          Your API key is <strong>never stored in any cloud database</strong> or external server. It is saved <strong>strictly on your local machine only</strong> and is used solely to execute requests directly with Google Gemini for your event plans.
+        </p>
+      </div>
+
       <!-- API Key input -->
       <div class="form-group">
         <div class="label-row">
           <label class="neo-label label-with-icon" for="api-key-input">
             <Key size={16} strokeWidth={2.5} />
-            <span>GOOGLE GEMINI API KEY:</span>
+            <span>YOUR PERSONAL GEMINI API KEY:</span>
           </label>
           <a
             href="https://aistudio.google.com/app/apikey"
@@ -140,7 +151,7 @@
             class="neo-input font-mono"
             placeholder={$vaultConfig.hasApiKey
               ? "••••••••••••••••••••••••"
-              : "AIzaSy..."}
+              : "Enter your personal Gemini API key here..."}
             bind:value={apiKeyInput}
           />
           <button
@@ -153,8 +164,8 @@
         </div>
         <span class="input-hint font-mono">
           {$vaultConfig.hasApiKey
-            ? "An API key is currently saved on your local computer disk."
-            : "Enter your API key to activate live Gemini Cloud Intelligence."}
+            ? "Your API key is securely saved on your local computer machine only."
+            : "Enter your personal Gemini API key. Stored exclusively on your local machine."}
         </span>
       </div>
 
@@ -302,6 +313,36 @@
     font-size: 0.75rem;
     color: #666;
     margin-top: 0.35rem;
+  }
+
+  .privacy-notice-box {
+    background: #E8FFF4;
+    border: var(--neo-border);
+    box-shadow: var(--neo-shadow-sm);
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .privacy-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #05603A;
+  }
+
+  .privacy-shield-icon {
+    color: #05603A;
+  }
+
+  .privacy-notice-text {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: #1a1a1a;
+    margin: 0;
   }
 
   .guidelines-card {
