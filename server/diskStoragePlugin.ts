@@ -369,10 +369,7 @@ export function diskStoragePlugin(): Plugin {
 
               const requestedModel = payload.model || config.geminiModel || 'gemini-3.5-flash';
               let modelId = requestedModel;
-              if (modelId === 'gemini-3.5-flash') {
-                // In Google Generative AI SDK, gemini-2.5-flash is the active flash production endpoint
-                modelId = 'gemini-2.5-flash';
-              }
+              
 
               const genAI = new GoogleGenerativeAI(apiKey);
               const model = genAI.getGenerativeModel({
