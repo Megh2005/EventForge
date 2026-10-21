@@ -1,0 +1,380 @@
+:root {
+  --neo-yellow: #FFE600;
+  --neo-pink: #FF2E93;
+  --neo-green: #25F482;
+  --neo-cyan: #00F0FF;
+  --neo-purple: #A855F7;
+  --neo-orange: #FF6600;
+  --neo-blue: #3B82F6;
+  --neo-red: #EF4444;
+  
+  --neo-bg: #F5F2EB;
+  --neo-surface: #FFFFFF;
+  --neo-dark: #0A0A0A;
+  --neo-muted: #E2DDD3;
+  --neo-border-color: #0A0A0A;
+  
+  --neo-border: 3.5px solid var(--neo-border-color);
+  --neo-border-thin: 2px solid var(--neo-border-color);
+  
+  --neo-shadow-sm: 3px 3px 0px var(--neo-border-color);
+  --neo-shadow: 5px 5px 0px var(--neo-border-color);
+  --neo-shadow-lg: 8px 8px 0px var(--neo-border-color);
+  --neo-shadow-xl: 12px 12px 0px var(--neo-border-color);
+  
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--neo-bg);
+  color: var(--neo-dark);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(var(--neo-border-color) 0.75px, transparent 0.75px);
+  background-size: 20px 20px;
+  background-color: var(--neo-bg);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Monospace text */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Tactile Buttons */
+.neo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 1.25rem;
+  background-color: var(--neo-yellow);
+  color: var(--neo-dark);
+  border: var(--neo-border);
+  box-shadow: var(--neo-shadow);
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  transition: transform 0.1s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.1s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.neo-btn:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--neo-shadow-lg);
+}
+
+.neo-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px var(--neo-border-color);
+}
+
+.neo-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--neo-shadow-sm);
+}
+
+/* Button color variants */
+.neo-btn-pink { background-color: var(--neo-pink); color: #fff; }
+.neo-btn-green { background-color: var(--neo-green); color: var(--neo-dark); }
+.neo-btn-cyan { background-color: var(--neo-cyan); color: var(--neo-dark); }
+.neo-btn-purple { background-color: var(--neo-purple); color: #fff; }
+.neo-btn-orange { background-color: var(--neo-orange); color: #fff; }
+.neo-btn-white { background-color: #fff; color: var(--neo-dark); }
+.neo-btn-dark { background-color: var(--neo-dark); color: #fff; }
+.neo-btn-sm {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  box-shadow: var(--neo-shadow-sm);
+}
+.neo-btn-sm:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--neo-shadow);
+}
+.neo-btn-sm:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px;
+}
+
+/* Tactile Cards */
+.neo-card {
+  background-color: var(--neo-surface);
+  border: var(--neo-border);
+  box-shadow: var(--neo-shadow-lg);
+  padding: 1.5rem;
+  position: relative;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.neo-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px var(--neo-border-color);
+}
+
+.neo-card-flat {
+  background-color: var(--neo-surface);
+  border: var(--neo-border);
+  box-shadow: var(--neo-shadow);
+  padding: 1.25rem;
+}
+
+/* Badges */
+.neo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border: var(--neo-border-thin);
+  box-shadow: 2px 2px 0px var(--neo-border-color);
+  background-color: var(--neo-yellow);
+  color: var(--neo-dark);
+  letter-spacing: 0.05em;
+}
+
+.neo-badge-pink { background-color: var(--neo-pink); color: #fff; }
+.neo-badge-green { background-color: var(--neo-green); color: var(--neo-dark); }
+.neo-badge-cyan { background-color: var(--neo-cyan); color: var(--neo-dark); }
+.neo-badge-purple { background-color: var(--neo-purple); color: #fff; }
+.neo-badge-orange { background-color: var(--neo-orange); color: #fff; }
+.neo-badge-dark { background-color: var(--neo-dark); color: #fff; }
+.neo-badge-white { background-color: #fff; color: var(--neo-dark); }
+
+/* Inputs and Forms */
+.neo-input, .neo-select, .neo-textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.7rem 0.9rem;
+  background-color: #fff;
+  border: var(--neo-border);
+  box-shadow: var(--neo-shadow-sm);
+  color: var(--neo-dark);
+  outline: none;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+}
+
+.neo-input:focus, .neo-select:focus, .neo-textarea:focus {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--neo-shadow);
+  background-color: #FFFFFF;
+}
+
+.neo-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
+/* Custom Checkbox */
+.neo-checkbox-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.neo-checkbox {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: var(--neo-border-thin);
+  background: #fff;
+  box-shadow: 2px 2px 0px var(--neo-border-color);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.neo-checkbox:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--neo-border-color);
+}
+
+.neo-checkbox:checked {
+  background-color: var(--neo-green);
+}
+
+.neo-checkbox:checked::before {
+  content: "";
+  width: 6px;
+  height: 11px;
+  border: solid var(--neo-dark);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+/* Progress bar */
+.neo-progress-wrap {
+  width: 100%;
+  height: 24px;
+  background-color: #fff;
+  border: var(--neo-border);
+  box-shadow: var(--neo-shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.neo-progress-fill {
+  height: 100%;
+  background: var(--neo-green);
+  border-right: var(--neo-border-thin);
+  transition: width 0.3s cubic-bezier(0.2, 0, 0, 1);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.08),
+    rgba(0, 0, 0, 0.08) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.neo-progress-fill.overbudget {
+  background-color: var(--neo-pink);
+}
+
+/* Diagonal stripe decoration */
+.stripes-pattern {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #0A0A0A,
+    #0A0A0A 8px,
+    var(--neo-yellow) 8px,
+    var(--neo-yellow) 16px
+  );
+}
+
+.stripes-subtle {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.05) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+/* Marquee Ticker */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: var(--neo-yellow);
+  border-top: var(--neo-border);
+  border-bottom: var(--neo-border);
+  padding: 0.4rem 0;
+  display: flex;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Modals */
+.neo-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.neo-modal-content {
+  background-color: var(--neo-surface);
+  border: var(--neo-border);
+  box-shadow: var(--neo-shadow-xl);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: popIn 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--neo-muted);
+  border-left: var(--neo-border-thin);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neo-dark);
+  border: 2px solid var(--neo-muted);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neo-pink);
+}
+
+/* Utility layout */
+.app-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+}
